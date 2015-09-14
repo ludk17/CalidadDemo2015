@@ -1,4 +1,10 @@
-﻿<link rel="stylesheet" href="/Content/bootstrap.css">
+﻿@using DEMO2015.Models
+@{
+    var paises = (List<Pais>)ViewBag.paises;
+}
+
+<link rel="stylesheet" href="/Content/bootstrap.css">
+<script src="/Scripts/jquery-1.10.2.js"></script>
 
 <div class="container" style="margin-top: 50px;">
 
@@ -6,41 +12,90 @@
 
         <div class="col-md-6 col-md-offset-3">
 
-            <form method="post" action="/Projects/Guardar">
-                <div class="form-group">
-                    <label>Nombres</label>
-                    <input type="text" class="form-control" placeholder="Nombre" name="name">
-                </div>
-                <div class="form-group">
-                    <label>Apellidos</label>
-                    <input type="text" class="form-control" placeholder="Apellido" name="lastname" />
-                </div>
-                <div class="form-group">
-                    <label>Edad</label>
-                    <input type="text" class="form-control" placeholder="Edad" name="age" />
-                </div>
-                <div class="form-group">
-                    <label>Sexo</label>
-                    <select class="form-control" name="gender">
-                        <option value="M">Masculino</option>
-                        <option value="F">Femenino</option>
-                        <option value="O">Otros</option>
-                    </select>
-                </div>
+            <!--<form method="post" action="/Projects/Guardar">-->
+                <fieldset>
+                    <legend>Persona</legend>
+                    <div class="form-group">
+                        <label>Nombres</label>
+                        <input type="text" class="form-control" placeholder="Nombre" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label>Apellidos</label>
+                        <input type="text" class="form-control" placeholder="Apellido" name="lastname" />
+                    </div>
+                    <div class="form-group">
+                        <label>Edad</label>
+                        <input type="text" class="form-control" placeholder="Edad" name="age" />
+                    </div>
+                    <div class="form-group">
+                        <label>Sexo</label>
+                        <select class="form-control" name="gender">
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                            <option value="O">Otros</option>
+                        </select>
+                    </div>
 
-                <div class="form-group">
-                    <label>Comentarios</label>
-                    <textarea name="comments" class="form-control" cols="50" rows="5"></textarea>
+                    <div class="form-group">
+                        <label>Comentarios</label>
+                        <textarea name="comments" class="form-control" cols="50" rows="5"></textarea>
 
-                </div>
+                    </div>
 
-                <div>
+                    <div class="form-group">
+                        <label>Cursos</label>
+                        <div>
+                            <input type="checkbox" name="habilities" value="Proyectos 1" /> Proyectos 1
+                            <input type="checkbox" name="habilities" value="Calidad Y Pruebas de Software" /> Calidad Y Pruebas de Software
+                        </div>
+
+                    </div>
+                </fieldset> 
+                <fieldset>
+                    <legend>Pais</legend>
+                    
+                    
+
+                        <select name="pais_select">
+                            <option value="1">Peru</option>
+                            <option value="2">Canada</option>
+                        </select>
+                        <button onClick="AgregarPaisALaLista()"> Agregar</button>
+
+                   
+                    <div class="form-group">
+                        <label>Nombre de Pais</label>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Código</th>
+                                </tr>  
+                            </thead>   
+                            <tbody id="tdbodyPaises"></tbody>
+                            
+                        </table>
+                    </div>
+                </fieldset>
+                @*<div>
                     <button class="btn btn-primary pull-right">Enviar</button>
-                </div>
-            </form>
+                </div>*@
+            <!--</form>-->
 
         </div>
 
     </div>
 
 </div>
+
+
+<script>
+
+
+    function AgregarPaisALaLista()
+    {
+        $('#tdbodyPaises').append('<tr><td>Perú</td><td>+51</td></tr>');
+    }
+
+
+</script>

@@ -17,5 +17,7 @@ namespace DEMO2015.Models
         public string gender { get; set; }
 
         public string comments { get; set; }
+        public string[] habilities {get;set;}
+        public Pais[] pais { get; set; }
     }
 }

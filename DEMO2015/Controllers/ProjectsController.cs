@@ -12,7 +12,8 @@ namespace DEMO2015.Controllers
     {
         [HttpGet]
         public ViewResult Index()
-        {            
+        {
+            ViewBag.paises = new List<Pais>();
             return View("Inicio");
         }
 
@@ -21,7 +22,17 @@ namespace DEMO2015.Controllers
         {
             var r = new PersonaRepository();
             r.save(o);
-            return String.Format("Id: {0}, Name: {1}, Lastname: {2}, age: {3}, sexo: {4}, comentarios: {5}", o.id, o.name, o.lastname, o.age, o.gender, o.comments);
+            return String.Format("Id: {0}, Name: {1}, Lastname: {2}, age: {3}, sexo: {4}, comentarios: {5}, habilidades : {6}", 
+                o.id, o.name, o.lastname, o.age, o.gender, o.comments, String.Join(", ", o.habilities));
+        }
+
+        [HttpPost]
+        public ViewResult addPais(int pais_select)
+        {
+            ViewBag.paises = new List<Pais>{
+                new Pais { name = "Perú", code = "+51"}
+            };
+            return View("Inicio");
         }
 
         [HttpGet]        
