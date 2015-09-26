@@ -1,46 +1,61 @@
-﻿<form action="/Store" method="post">
+﻿<div class="container">
+    <form action="/Venta/Store" method="post">
 
-    <input type="text" name="NumeroVenta" id="NumeroVenta" placeholder="Número de Venta" value="1234" />
+        <div class="form-group">
+            <label for="" class="control-label">Número de Venta</label>
 
-    <input type="text" name="FechaVenta" placeholder="Fecha de Venta" />
+            <input type="text" name="NumeroVenta" class="form-control" id="NumeroVenta" placeholder="Número de Venta" value="1234" />
+        </div>
 
-    <select name="ClienteId" class="select">
-        <option value="1">Luis Mendoza Escalante</option>
-        <option value="2">Napoleon Bonaparte</option>
-        <option value="3">Adolf Hitler</option>
-        <option value="4">Hugo Chavez</option>
-        <option value="5">Nicolas Maduro</option>
-    </select>
+        <div class="form-group">
+            <label for="" class="control-lable">Fecha de Venta</label>
+            <input type="text" class="form-control" name="FechaVenta" placeholder="Fecha de Venta" />
+        </div>
+        <div class="form-grpup">
+            <label for="">Cliente</label>
+        <select name="ClienteId" class="select form-control">
+            <option value="1">Luis Mendoza Escalante</option>
+            <option value="2">Napoleon Bonaparte</option>
+            <option value="3">Adolf Hitler</option>
+            <option value="4">Hugo Chavez</option>
+            <option value="5">Nicolas Maduro</option>
+        </select>
+            </div>
+        <div class="form-group">
+            <label for="">Prducto</label>
+            <select name="ProductoId" class="select form-control" id="product">
+                <option value="1">Xbox One</option>
+                <option value="2">PS4</option>
+                <option value="3">Wii</option>
+                <option value="4">Nintendo 3DS</option>
+                <option value="5">Ouya</option>
+            </select>
+        </div>
 
-    <select name="ProductoId" class="select" id="product">
-        <option value="1">Xbox One</option>
-        <option value="2">PS4</option>
-        <option value="3">Wii</option>
-        <option value="4">Nintendo 3DS</option>
-        <option value="5">Ouya</option>
-    </select>
-
-    <a href="#" id="as" onClick="addACarrito()"  >Añadir Producto</a>
-
-    <a href="#" onClick="mostrarValor()" >Mostrar Valor de Numero de venta</a>
+        <div class="form-group">
+            <a href="#" class="btn btn-default" id="as" onclick="addACarrito()">Añadir Producto</a>
+        </div>
+        
 
 
-    <table>
-        <thead>
-            <tr>
-                <th>N#</th> 
-                <th>Producto</th>
-                <th>Stock</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
-            </tr>
-        </thead>  
-        <tbody id="bodyProducto">   
-                                
-        </tbody> 
-    </table>
-    
-</form>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>N#</th>
+                    <th>Producto</th>
+                    <th>Stock</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody id="bodyProducto"></tbody>
+        </table>
+
+        <button class="btn btn-primary">Guardar Venta</button>
+
+    </form>
+</div>
 
 
 <script>
@@ -54,7 +69,7 @@
 
     //$('#NumeroVenta').val('1235')
 
-    
+    var index = 0;
 
 
     function addACarrito()
@@ -64,11 +79,14 @@
         // Servidor nos dara una respuesta y nostros capturaremos esa respuesta <tr><td>N#</td><td>XboxOne</td><td>10</td><td>1500</td><td><input type="text" /></td></tr>
         // esa respuesta la añadiremos en el bodyProducto $('#bodyProducto').append(respuesta);
 
-        var valor = $('#product').val();        
-        $.get('/Venta/AddProducto/' + valor)
+        var valor = $('#product').val();
+        
+        $.get('/Venta/AddProducto/' + valor + '?index=' + index)
         .success(function (respuesta) {
             $('#bodyProducto').append(respuesta);
         });
+
+        index++;
     }
 
     

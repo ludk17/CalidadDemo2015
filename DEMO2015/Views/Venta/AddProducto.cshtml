@@ -1,7 +1,10 @@
 ﻿<tr>
     <td>N#</td>
-    <td>@Model.Nombre</td>
+    <td>
+        @Model.Nombre
+        <input type="hidden" name="Productos[@ViewBag.Index].Id" value="@Model.Id" />
+    </td>
     <td>@Model.Stock</td>
     <td>@Model.Precio</td>
-    <td><input type="text" /></td>
+    <td><input type="text" name="Productos[@ViewBag.Index].Cantidad" /></td>
 </tr>  
