@@ -3,16 +3,15 @@
     var paises = (List<Pais>)ViewBag.paises;
 }
 
-<link rel="stylesheet" href="/Content/bootstrap.css">
-<script src="/Scripts/jquery-1.10.2.js"></script>
 
-<div class="container" style="margin-top: 50px;">
 
-    <div class="row">
+    <div class="container" style="margin-top: 50px;">
 
-        <div class="col-md-6 col-md-offset-3">
+        <div class="row">
 
-            <!--<form method="post" action="/Projects/Guardar">-->
+            <div class="col-md-6 col-md-offset-3">
+
+                <!--<form method="post" action="/Projects/Guardar">-->
                 <fieldset>
                     <legend>Persona</legend>
                     <div class="form-group">
@@ -50,19 +49,19 @@
                         </div>
 
                     </div>
-                </fieldset> 
+                </fieldset>
                 <fieldset>
                     <legend>Pais</legend>
-                    
-                    
 
-                        <select name="pais_select">
-                            <option value="1">Peru</option>
-                            <option value="2">Canada</option>
-                        </select>
-                        <button onClick="AgregarPaisALaLista()"> Agregar</button>
 
-                   
+
+                    <select name="pais_select">
+                        <option value="1">Peru</option>
+                        <option value="2">Canada</option>
+                    </select>
+                    <button onclick="AgregarPaisALaLista()"> Agregar</button>
+
+
                     <div class="form-group">
                         <label>Nombre de Pais</label>
                         <table>
@@ -70,32 +69,20 @@
                                 <tr>
                                     <th>Nombre</th>
                                     <th>Código</th>
-                                </tr>  
-                            </thead>   
+                                </tr>
+                            </thead>
                             <tbody id="tdbodyPaises"></tbody>
-                            
+
                         </table>
                     </div>
                 </fieldset>
                 @*<div>
-                    <button class="btn btn-primary pull-right">Enviar</button>
-                </div>*@
-            <!--</form>-->
+                        <button class="btn btn-primary pull-right">Enviar</button>
+                    </div>*@
+                <!--</form>-->
+
+            </div>
 
         </div>
 
     </div>
-
-</div>
-
-
-<script>
-
-
-    function AgregarPaisALaLista()
-    {
-        $('#tdbodyPaises').append('<tr><td>Perú</td><td>+51</td></tr>');
-    }
-
-
-</script>

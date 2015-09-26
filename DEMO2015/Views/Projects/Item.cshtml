@@ -1,0 +1,19 @@
+﻿<tr ng-repeat="item in model.items" class="ng-scope">
+    <td>
+        <a href="#" ng-click="remove($index)" target="_self"><i class="fa fa-trash"></i></a>
+    </td>
+    <td class="ng-binding">
+        AP-01
+    </td>
+    <td class="ng-binding">Canicat</td>
+    <td class="text-right">
+        <a href="#" class="ng-binding" target="_self">S/.50.50</a>
+    </td>
+    <td class="text-right ng-binding">
+        9
+    </td>
+    <td class="number td-input">
+        <input type="number" ng-model="item.quantity" class="number ng-pristine ng-untouched ng-valid">
+    </td>
+    <td class="number ng-binding">S/.50.50</td>
+</tr>

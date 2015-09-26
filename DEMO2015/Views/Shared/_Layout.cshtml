@@ -1,44 +1,91 @@
-﻿@*<!DOCTYPE html>
-<html>
+﻿<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+	<meta charset="UTF-8">
+	<title>Calidad 01</title>
 
+    <link rel="stylesheet" href="/Content/bootstrap.css">
+    
+    <script src="/Scripts/bootstrap.js"></script>
+    <script src="/Scripts/jquery-1.10.2.js"></script>
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+<body>	
+    <nav class="navbar navbar-bootsnipp animate" role="navigation">
         <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <div class="animbrand">
+                    <a class="navbar-brand animate" href="http://bootsnipp.com">Bootsnipp</a>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="visible-xs">
+                        <form action="http://bootsnipp.com/search" method="GET" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="q" placeholder="Search for snippets">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                                    <button class="btn btn-danger" type="reset"><span class="glyphicon glyphicon-remove"></span></button>
+                                </span>
+                            </div>
+                        </form>
+                    </li>
+                    <li class=""><a href="http://bootsnipp.com/about" class="animate">About</a></li>
+                    <li>
+                        <a href="#" class="dropdown-toggle animate " data-toggle="dropdown">Resources <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class=""><a href="http://bootsnipp.com/blog" class="animate">Blog <span class="pull-right glyphicon glyphicon-pencil"></span></a></li>
+                            <li class=""><a href="http://bootsnipp.com/resources" class="animate">List of resources <span class="pull-right glyphicon glyphicon-align-justify"></span></a></li>
+                            <li><a href="http://getbootstrap.com" target="_blank" class="animate">Download Bootstrap <span class="pull-right glyphicon glyphicon-cloud-download"></span></a></li>
+                            <li class="dropdown-header">Bootstrap Templates</li>
+                            <li class=""><a href="http://bootsnipp.com/templates" class="animate">Browse Templates <span class="pull-right glyphicon glyphicon-shopping-cart"></span></a></li>
+                            <li class="dropdown-header">Builders</li>
+                            <li class=""><a href="http://bootsnipp.com/forms" class="animate">Form Builder <span class="pull-right glyphicon glyphicon-tasks"></span></a></li>
+                            <li class=""><a href="http://bootsnipp.com/buttons" class="animate">Button Builder <span class="pull-right glyphicon glyphicon-edit"></span></a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="http://bootsnipp.com/snippets" class="dropdown-toggle animate" data-toggle="dropdown">Snippets <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="active"><a href="http://bootsnipp.com/snippets/featured" class="animate">Featured <span class="pull-right glyphicon glyphicon-star"></span></a></li>
+                            <li class=""><a href="http://bootsnipp.com/tags" class="animate">Tags  <span class="pull-right glyphicon glyphicon-tags"></span></a></li>
+                            <li class="dropdown-header">By Bootstrap Version</li>
+                            <li><a href="http://bootsnipp.com/tags/3.3.0" class="animate">3.3.0</a></li>
+                            <li><a href="http://bootsnipp.com/tags/3.2.0" class="animate">3.2.0</a></li>
+                            <li><a href="http://bootsnipp.com/tags/3.1.0" class="animate">3.1.0</a></li>
+                            <li><a href="http://bootsnipp.com/tags/3.0.3" class="animate">3.0.3</a></li>
+                            <li><a href="http://bootsnipp.com/tags/3.0.1" class="animate">3.0.1</a></li>
+                            <li><a href="http://bootsnipp.com/tags/3.0.0" class="animate">3.0.0</a></li>
+                            <li><a href="http://bootsnipp.com/tags/2.3.2" class="animate">2.3.2</a></li>
+                        </ul>
+                    </li>
+
+                    <li class=""><a href="http://bootsnipp.com/register" class="animate">Register</a></li>
+                    <li id="nav-login-btn" class=""><a href="http://bootsnipp.com/login" class="animate">Login</a></li>
+
+                    <li class="hidden-xs"><a href="#toggle-search" class="animate"><span class="glyphicon glyphicon-search"></span></a></li>
                 </ul>
-                @Html.Partial("_LoginPartial")
             </div>
         </div>
-    </div>
-    <div class="container body-content">*@
-        @RenderBody()
-        @*<hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        
+    </nav>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @RenderBody()
+    
 </body>
-</html>*@
+</html>
+
+
+
+
+
+

@@ -11,10 +11,16 @@ namespace DEMO2015.Controllers
     public class ProjectsController : Controller
     {
         [HttpGet]
-        public ViewResult Index()
+        public PartialViewResult Index()
         {
             ViewBag.paises = new List<Pais>();
-            return View("Inicio");
+            return PartialView("Inicio");
+        }
+
+        [HttpGet]
+        public PartialViewResult Item()
+        {
+            return PartialView("Item");
         }
 
         [HttpPost]
@@ -42,13 +48,13 @@ namespace DEMO2015.Controllers
         }
 
         [HttpGet]
-        public ViewResult Show(int id)
+        public PartialViewResult Show(int id)
         {
             var r = new PersonaRepository();
             
             var persona = r.Find(id);
 
-            return View("Show", persona);
+            return PartialView("Show", persona);
         }
     }
 }

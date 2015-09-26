@@ -7,8 +7,10 @@ namespace DEMO2015.Models
 {
     public class Product
     {
-        public string nombre { get; set; }
-        public double precio { get; set; }
-        public int cantidad { get; set; }
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public int Stock { get; set; }
+        public double Precio { get; set; }
+        public int Cantidad { get; set; }
     }
 }

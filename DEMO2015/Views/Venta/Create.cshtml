@@ -1,0 +1,94 @@
+﻿<form action="/Store" method="post">
+
+    <input type="text" name="NumeroVenta" id="NumeroVenta" placeholder="Número de Venta" value="1234" />
+
+    <input type="text" name="FechaVenta" placeholder="Fecha de Venta" />
+
+    <select name="ClienteId" class="select">
+        <option value="1">Luis Mendoza Escalante</option>
+        <option value="2">Napoleon Bonaparte</option>
+        <option value="3">Adolf Hitler</option>
+        <option value="4">Hugo Chavez</option>
+        <option value="5">Nicolas Maduro</option>
+    </select>
+
+    <select name="ProductoId" class="select" id="product">
+        <option value="1">Xbox One</option>
+        <option value="2">PS4</option>
+        <option value="3">Wii</option>
+        <option value="4">Nintendo 3DS</option>
+        <option value="5">Ouya</option>
+    </select>
+
+    <a href="#" id="as" onClick="addACarrito()"  >Añadir Producto</a>
+
+    <a href="#" onClick="mostrarValor()" >Mostrar Valor de Numero de venta</a>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>N#</th> 
+                <th>Producto</th>
+                <th>Stock</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>  
+        <tbody id="bodyProducto">   
+                                
+        </tbody> 
+    </table>
+    
+</form>
+
+
+<script>
+
+    //$('#bodyProducto').html('<tr><td>N#</td><td>XboxOne</td><td>10</td><td>1500</td><td><input type="text" /></td></tr> ');
+    
+
+    //$('#as').html('ingresar Item');
+
+    //alert($('#NumeroVenta').val());
+
+    //$('#NumeroVenta').val('1235')
+
+    
+
+
+    function addACarrito()
+    {
+        // Necesitamos el valor/id de producto
+        // Llamar al servidor http://localhost:4564/Venta/AddProducto/{id}
+        // Servidor nos dara una respuesta y nostros capturaremos esa respuesta <tr><td>N#</td><td>XboxOne</td><td>10</td><td>1500</td><td><input type="text" /></td></tr>
+        // esa respuesta la añadiremos en el bodyProducto $('#bodyProducto').append(respuesta);
+
+        var valor = $('#product').val();        
+        $.get('/Venta/AddProducto/' + valor)
+        .success(function (respuesta) {
+            $('#bodyProducto').append(respuesta);
+        });
+    }
+
+    
+
+    function mostrarValor()
+    {
+        var numero = $('#NumeroVenta').val();
+        //http://localhost:4564/Venta/Multiplicar?numero=1234
+
+        $.get('http://localhost:4564/Venta/Multiplicar?numero=' + numero)
+        .success(function (respuesta)
+        {
+            alert(respuesta);
+        });
+    }
+    
+
+
+
+
+    
+   
+</script>
